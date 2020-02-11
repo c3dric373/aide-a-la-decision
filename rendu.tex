@@ -1,84 +1,76 @@
-%% Erläuterungen zu den Befehlen erfolgen unter
-%% diesem Beispiel.
-
-%% Article Template
-\documentclass[]{scrartcl}
-
-
-%% UTF8 Encoding
+\documentclass{article}
+\usepackage[bottom,flushmargin,hang,multiple]{footmisc}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-%\usepackage[margin=5cm]{geometry}% http://ctan.org/pkg/geometry
-\usepackage{lmodern}
-\usepackage{subcaption}
-\usepackage{setspace}
-\usepackage[french]{babel}
-\usepackage{csquotes}
-\usepackage{pdfpages}
-% appendix
-\usepackage[titletoc]{appendix}
-
-\setstretch{0.99}
-
-%Tabellen mit fixen Breiten
-\usepackage{tabularx}
-
-%% Grafik
-\usepackage{graphicx} 
-\newcommand{\name}{Insta.edit}
-
-%% Links im PDF
-\usepackage{hyperref}
-\usepackage{rotating}
-\usepackage{lscape}
+\usepackage[francais]{babel}
 \usepackage{fancyhdr}
-\usepackage{float}
-\usepackage[titles]{tocloft}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{subcaption}
+\geometry{margin=2cm}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+}
+\usepackage{enumitem}
+\setlist[itemize]{before={\vspace{2mm}},after={\vspace{2mm}}}
+\newcommand{\cref}[1]{Figure \ref{#1}}
+\title{{\Huge Projet aide à la décision}}
+
+\author{{\Large
+H4222}\\
+-
+\\
+Félix Castillon, Roxane Debord, David Hamidovic, Corentin Laharotte,\\
+Cédric Milinaire, Grazia Ribbeni, Ousmanne Touat\\
+-}
+
+\date{Février 2020}
+
 \pagestyle{fancy}
-\rhead{\includegraphics[scale=0.15]{img/insa-logo}}
-\chead{\Large -Aide a la decision- }
-\lhead{Hexanome 4222}
-
-\title{Application d'aide a la décision\\
-\subtitle{}
-\author{TP. Aide a la decision\\
-Professeurs: \\ Stephane Bres \\ Anne Legait \\ Maryvonne Miquel	\
-\ \\
-Version 1.0}
-\date{16/10/2019}}
-
+\fancyhf{}
+\lhead{TP Fouille de données}
+\rfoot{Page \thepage}
 
 \begin{document}
 
 \maketitle
-
-\begin{figure}[h]
-	\centering
-  \includegraphics[width=0.5\textwidth]{img/insa-logo}
-	\label{fig:logo}
-\end{figure}
-
-
-\begin{center}
-  \begin{tabular}{ | l | r | }
-    \hline
-    \textbf{Corentin Laharotte}\\ \hline
-    \textbf{Cédric Milinaire }\\ \hline
-    \textbf{Felix Castillon}\\ \hline
-    \textbf{Roxane Debord}\\ \hline
-     \textbf{Grazia Gilulia Ribbeni}\\ \hline
-     \textbf{Ousmane Touat} \\ \hline
-     \textbf{David Hamidovic} \\ \hline
-
-
-  \end{tabular}
-\end{center}
-
 \thispagestyle{empty}
-\pagebreak
-\vspace*{10pt}
-\tableofcontents
-\listoffigures
-\newpage
+
+\section{Introduction}
+En vue de trouver un nouveau plan hebdomadaire de production nous allons réaliser un état de l’art du plan existant en vue de l’améliorer. Pour cela, différentes démarches seront mises en œuvre.\\
+
+Dans un premier temps nous allons concevoir une solution spécifique pour chacune des parties évoquées dans l’appel d’offre : comptabilité, fabrication, stock, commercial, personnel. Il s'agira donc d'une optimisation mono-critère.\\
+Ensuite nous allons aborder le sujet de façon plus globale en effectuant une optimisation multi-critère qui prend en compte chaque solution spécifique identifiée auparavant. Il sera alors possible d'identifier le point de mire et la matrice de gain ainsi que différentes solutions possibles parmi lesquelles il y aura celle que nous allons vous proposer.\\
+Dernièrement une deuxième analyse multi-critère sera effectuée à partir de 8 proposition de gestion de l'atelier selon 4 critères sélectionnés.
+
+
+\subsection{Analyses mono-critère}
+\subsection{Comptabilité}
+
+But : Maximiser le bénéfice en tenant compte des coûts de production et d’approvisionnement\\
+
+Démarche :\\
+Analyse et modélisation du problème :\\
+Nous disposons de : \\
+
+\begin{itemize}
+\item Prix de vente des produits (table 4a),
+\item Prix d’achat de chaque matière première (table 4b),
+\item Quantités des matières premières nécessaire pour chaque produit (table 2),
+\item Quantités maximales de stockage de chaque matière première (table 3),
+\item Temps d’usinage de chaque produit sur chaque machine (table 1),
+\item Coût horaire de chaque machine (table 5)
+\end{itemize}
+
+Pour modéliser le problè
 
 \end{document}
+\geometry{margin=2cm}
+
+
