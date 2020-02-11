@@ -63,3 +63,15 @@ end
 
 plot(0:1:100,graph);
 
+% Points particuliers pour ~48 et 94% d'activité
+
+% Pour 48% d'activité
+X48 =linprog(fstock,c1,B,[1 1 1 1 1 1],(48/100)*prod,zeros(6,1),[]);
+% Calcul du Stock correspondant
+stock48 = sum(M2*X48) + sum(X48)
+
+% Pour 94% d'activité
+X94 =linprog(fstock,c1,B,[1 1 1 1 1 1],(94/100)*prod,zeros(6,1),[]);
+% Calcul du Stock correspondant
+stock94 = sum(M2*X94) + sum(X94)
+
