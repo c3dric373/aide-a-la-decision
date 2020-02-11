@@ -1,0 +1,84 @@
+%% Erläuterungen zu den Befehlen erfolgen unter
+%% diesem Beispiel.
+
+%% Article Template
+\documentclass[]{scrartcl}
+
+
+%% UTF8 Encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[margin=5cm]{geometry}% http://ctan.org/pkg/geometry
+\usepackage{lmodern}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage[french]{babel}
+\usepackage{csquotes}
+\usepackage{pdfpages}
+% appendix
+\usepackage[titletoc]{appendix}
+
+\setstretch{0.99}
+
+%Tabellen mit fixen Breiten
+\usepackage{tabularx}
+
+%% Grafik
+\usepackage{graphicx} 
+\newcommand{\name}{Insta.edit}
+
+%% Links im PDF
+\usepackage{hyperref}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[titles]{tocloft}
+\pagestyle{fancy}
+\rhead{\includegraphics[scale=0.15]{img/insa-logo}}
+\chead{\Large -Aide a la decision- }
+\lhead{Hexanome 4222}
+
+\title{Application d'aide a la décision\\
+\subtitle{}
+\author{TP. Aide a la decision\\
+Professeurs: \\ Stephane Bres \\ Anne Legait \\ Maryvonne Miquel	\
+\ \\
+Version 1.0}
+\date{16/10/2019}}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{figure}[h]
+	\centering
+  \includegraphics[width=0.5\textwidth]{img/insa-logo}
+	\label{fig:logo}
+\end{figure}
+
+
+\begin{center}
+  \begin{tabular}{ | l | r | }
+    \hline
+    \textbf{Corentin Laharotte}\\ \hline
+    \textbf{Cédric Milinaire }\\ \hline
+    \textbf{Felix Castillon}\\ \hline
+    \textbf{Roxane Debord}\\ \hline
+     \textbf{Grazia Gilulia Ribbeni}\\ \hline
+     \textbf{Ousmane Touat} \\ \hline
+          \textbf{David Hamidovic} \\ \hline
+
+
+  \end{tabular}
+\end{center}
+
+\thispagestyle{empty}
+\pagebreak
+\vspace*{10pt}
+\tableofcontents
+\listoffigures
+\newpage
+
+\end{document}
