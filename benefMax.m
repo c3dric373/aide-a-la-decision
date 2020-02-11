@@ -1,4 +1,3 @@
-% Matrices données 
 M1 = [ 8 17 8 2 15 15 15;
     15 11 1 10 0 5 13;
     0 12 11 5 0 3 15;
@@ -16,7 +15,6 @@ M4p = [3 4 2];
 
 M5 = [ 2 2 1 1 2 3 3 ];
 
-% Contraintes
 c1 = [1 2 1 1 1 2;
     2 2 1 2 2 1;
     1 0 3 2 2 0;
@@ -30,35 +28,18 @@ c1 = [1 2 1 1 1 2;
 
 B = [ 750 620 815 4800 4800 4800 4800 4800 4800 4800];
 
-% fonction de calcul du bénéfice
-fbenef = -1*(M4 - M4p*M2 - (1/60)*M5*M1');
-
-% fonction de calcul de la production 
+f = -1*(M4 - M4p*M2 - (1/60)*M5*M1');
 fprod=[-1 -1 -1 -1 -1 -1];
+X= linprog(f,c1,B,[],[],zeros(6,1),[])
+Xprod= linprog(fprod,c1,B,[],[],zeros(6,1),[])
 
-% fonction de calcul du stock :
-% Pour chaque produit, on somme les matières premières nécessaires à sa
-% production, puis on ajoute la place que prendra le produit dans le stock
-fstock = sum(M2)+ones(1,6);
-
-% X maximisant les bénéfices
-Xbenef = linprog(fbenef,c1,B,[],[],zeros(6,1),[])
-
-% X maximisant la production
-Xprod = linprog(fprod,c1,B,[],[],zeros(6,1),[])
-
-% prod représente la production totale ( tout produit confondu )
-prod = sum(Xprod);
-
+stock = sum(M2*X)+sum(X)
+%stockOpti =linprog(fstrock,c1,B,[],[], 0.5*Xprod,[]);
+prod=sum(Xprod);
 graph=zeros(101,1);
 for i=0:1:100
-    % Recherche du X tel que fstock soit minimal
-    % c1*X < B
-    % sum(X) = (i/100)*ProdMaximale
-    % X > 0 
-    XN =linprog(fstock,c1,B,[1 1 1 1 1 1],(i/100)*prod,zeros(6,1),[]);
-    % Calcul du Stock correspondant
-    graph(i+1)= sum(M2*XN) + sum(XN);
+    XN=linprog(sum(M2)+ones(1,6),c1,B,[],[],i/100*Xprod,[]);
+    graph(i+1)=sum(M2*XN)+sum(XN);
 end
 
 plot(0:1:100,graph);
