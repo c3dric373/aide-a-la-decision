@@ -58,7 +58,7 @@ for i=0:1:100
     % X > 0 
     XN =linprog(fstock,c1,B,[1 1 1 1 1 1],(i/100)*prod,zeros(6,1),[]);
     % Calcul du Stock correspondant
-    graph(i+1)= sum(M2*XN) + sum(XN);
+    graph(i+1)= fstock*XN; 
 end
 
 plot(0:1:100,graph);
@@ -68,10 +68,10 @@ plot(0:1:100,graph);
 % Pour 48% d'activité
 X48 =linprog(fstock,c1,B,[1 1 1 1 1 1],(48/100)*prod,zeros(6,1),[]);
 % Calcul du Stock correspondant
-stock48 = sum(M2*X48) + sum(X48)
+stock48 = fstock * X48 
 
 % Pour 94% d'activité
 X94 =linprog(fstock,c1,B,[1 1 1 1 1 1],(94/100)*prod,zeros(6,1),[]);
 % Calcul du Stock correspondant
-stock94 = sum(M2*X94) + sum(X94)
+stock94 = fstock * X94 
 
