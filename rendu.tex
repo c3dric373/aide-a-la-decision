@@ -45,18 +45,36 @@ Cédric Milinaire, Grazia Ribbeni, Ousmanne Touat\\
 \section{Introduction}
 En vue de trouver un nouveau plan hebdomadaire de production nous allons réaliser un état de l’art du plan existant en vue de l’améliorer. Pour cela, différentes démarches seront mises en œuvre.\\
 
-Dans un premier temps nous allons concevoir une solution spécifique pour chacune des parties évoquées dans l’appel d’offre : comptabilité, fabrication, stock, commercial, personnel. Il s'agira donc d'une optimisation mono-critère.\\
+Après avoir établi les critères globaux nous allons concevoir une solution spécifique pour chacune des parties évoquées dans l’appel d’offre : comptabilité, fabrication, stock, commercial, personnel. Il s'agira donc d'une optimisation mono-critère.\\
 Ensuite nous allons aborder le sujet de façon plus globale en effectuant une optimisation multi-critère qui prend en compte chaque solution spécifique identifiée auparavant. Il sera alors possible d'identifier le point de mire et la matrice de gain ainsi que différentes solutions possibles parmi lesquelles il y aura celle que nous allons vous proposer.\\
 Dernièrement une deuxième analyse multi-critère sera effectuée à partir de 8 proposition de gestion de l'atelier selon 4 critères sélectionnés.
 
+\subsection{Critères globaux}
+Toute analyse présentée dans cette étude est guidée par des critères globaux qui correspondent à des contraintes physiques, temporelles et économiques de l'entreprise.\\
 
-\subsection{Analyses mono-critère}
+\subsection{Travail des machines}
+Chaque machine fonctionne 16h par jour soit 4800 minutes par semaine de 5 jours ouvrés.
+Ainsi, pour chaque machine, nous pouvons déduire des données fournies la formule permettant de calculer le temps d'utilisation qui doit doit donc être inférieur à 4800.\\
+
+Inéquations ici.
+
+\subsection{Stock maximal}
+Il est possible de stocker une quantité maximale de chaque matière première. La quantité en stock dépend des quantités produites de chaque produit, ce qui donne trois inéquations.\\
+
+Inéquations ici.
+
+\subsection{Production minimale positive}
+Même si ce critère peut paraître trivial, il est essentiel au niveau mathématique car en son absence on pourrait avoir des chiffres de production négatives. On a alors les inéquations suivantes.\\
+
+Inéquations ici.
+
+
+\section{Analyses mono-critère}
 \subsection{Comptabilité}
 
-But : Maximiser le bénéfice en tenant compte des coûts de production et d’approvisionnement\\
+Dans le but de maximiser le bénéfice en tenant compte des coûts de production et d’approvisionnement nous allons d'abord modéliser le problème sous forme matricielle pour ensuite effectuer l'analyse et en tirer des conclusions \\
 
-Démarche :\\
-Analyse et modélisation du problème :\\
+\subsection{Analyse et modélisation du problème}
 Nous disposons de : \\
 
 \begin{itemize}
@@ -68,7 +86,14 @@ Nous disposons de : \\
 \item Coût horaire de chaque machine (table 5)
 \end{itemize}
 
-Pour modéliser le problè
+Pour modéliser le problème nous allons écrire chaque table sous forme matricielle. Chacune d'entre elles va donc s'appeler Mx où x est le nombre de la table qu'elle représente.\\
+
+Pour maximiser le bénéfice il faut lui associer une fonction. De manière générale le bénéfice est donné par le chiffre d'affaire auquel on enlève les coûts de production (matières premières et travail des machines dans notre cas).
+L'équation du bénéfice pour notre problème est donc :\\
+ 
+M4a' - M2' * M4b' - (1/60) * M1 * M5'   \\
+
+explication des transposés et des divisions et multiplications.
 
 \end{document}
 \geometry{margin=2cm}
