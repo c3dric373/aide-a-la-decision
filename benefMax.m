@@ -73,4 +73,11 @@ stock45 = fstock * X45;
 % Pour 93% d'activité
 X93 =linprog(fstock,c1,B,[1 1 1 1 1 1],(93/100)*prod,zeros(6,1),[]);
 % Calcul du Stock correspondant
-stock93 = fstock * X93; 
+stock93 = fstock * X93;
+
+%resp commercial
+Aeq= [1 1 1 -1 -1 -1];
+
+Beq=[0];
+
+Xcom = linprog(fprod,c1,B,Aeq,Beq,zeros(6,1),[])
