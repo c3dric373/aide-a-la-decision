@@ -37,10 +37,10 @@ stock = sum(M2*X)+sum(X)
 %stockOpti =linprog(fstrock,c1,B,[],[], 0.5*Xprod,[]);
 prod=sum(Xprod);
 graph=zeros(101,1);
-for i=0:1:100
-    XN=linprog(sum(M2)+ones(1,6),c1,B,[],[],i/100*Xprod,[]);
-    graph(i+1)=sum(M2*XN)+sum(XN);
-end
+% for i=0:1:100
+%     XN=linprog(sum(M2)+ones(1,6),c1,B,[],[],i/100*Xprod,[]);
+%     graph(i+1)=sum(M2*XN)+sum(XN);
+% end
 
 plot(0:1:100,graph);
 
