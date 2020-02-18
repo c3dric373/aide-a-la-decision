@@ -182,7 +182,44 @@ $41.2*P_{opt}-2043 = 21.3*P_{opt} - 200$ \\
 Soit $P_{opt} = 92.6 \approx 93 $
 \end{itemize}
 
-Ces points sont importants puisque ce sont des points de rupture avant une grande augmentation des stocks. Le stock minimal est celui correspondant à une activité de 45\%, soit 762.2 unités. Cependant, il est difficile de demander à une entreprise de ne produire que 50\% de sa production maximale, c'est pourquoi l'entreprise pourrait choisir de produire 93\% de sa capacité maximale et avoir un stock de 1799.6 unités. 
+Ces points sont importants puisque ce sont des points de rupture avant une grande augmentation des stocks. Le stock minimal est celui correspondant à une activité de 45\%, soit 762.2 unités. Cependant, il est difficile de demander à une entreprise de ne produire que 50\% de sa production maximale, c'est pourquoi l'entreprise pourrait choisir de produire 93\% de sa capacité maximale et avoir un stock de 1799.6 unités. \\
+
+\section{Analyse multi-critère}
+Parmi les solutions proposées seulement 8 ont été retenues. La commission souhaite donc établir la meilleure solution parmi les 8 selon 4 critères ( bénéfice, gestion de stock, équilibre commercial et utilisation des machines 2 et 7).\\
+
+Pour cela nous allons effectuer une analyse multi-critère avec la méthode ElectreI car nous ne souhaitons pas classer les actions les unes par rapport aux autres mais juste identifier la meilleure. Pour cela nous allons utiliser le tableau des jugements fourni. Dans un premier temps la méthode sera appliquée au tableau brut, puis au tableau auquel on aura affecté un coefficient par critère selon l'importance et enfin au tableau avec les coefficients et une mise à l'échelle des valeurs en fonction du coefficient.\\ 
+
+\subsection{Analyse multi-critère sans pondération}
+A partir du tableau des jugements nous allons construire la matrice de concordance qui va nous permettre de trouver les actions dominantes et celles non dominantes à éliminer. Puis nous allons déterminer la matrice de discordance pour ensuite déduire le tableau de surclassement et son graphique qui, en fonction des seuils choisis pour la concordance et la discordance va donner les ou la meilleure solution.\\
+
+Tableau\\
+Concordance, Discordance\\ explication méthode et résultats
+Surclassement, Graphique\\ explication méthode et résultats
+
+Cette analyse nous a permis de déterminer que les actions 2,3,5 sont les meilleures faces à l'ensemble des 4 critères.
+
+\subsection{Analyse multi-critère avec pondération}
+Nous allons maintenant ré-faire l'analyse en affectant un coefficient à chaque critère selon l'importance attribuée. Nous avons choisi d'accorder le coefficient le plus important à la gestion du stock car c'est le critère qui avait émergé lors de l'analyse précédente (partie 2), puis le bénéfice est aussi un des axes principaux de la stratégie et enfin les deux derniers critères sont secondaires pour la réussite de l'entreprise bien que toujours importants pour sa stabilité dans le temps.
+L'application de la méthode reste donc presque la même mais les résultats changent.\\
+
+Tableau\\
+Concordance, Discordance\\ explication méthode et résultats
+Surclassement, Graphique\\ explication méthode et résultats
+
+Cette analyse nous a permis de déterminer que l'action 3 est la meilleure faces à l'ensemble des 4 critères pondérés par leur importance.
+
+\subsection{Analyse multi-critère avec pondération et mise à l'échelle}
+Nous allons maintenant mettre à l'échelle les valeurs du tableau des jugements selon les intervalles et la formule qui suivent : 
+Trucs du cours ici.
+
+L'application de la méthode reste donc presque la même mais les résultats changent.\\
+
+Tableau\\
+Concordance, Discordance\\ explication méthode et résultats
+Surclassement, Graphique\\ explication méthode et résultats
+
+Cette analyse nous a permis de déterminer que les action 3 et 4 sont les meilleures faces à l'ensemble des 4 critères pondérés par leur importance et à la mise à l'échelle.
+
 
 \end{document}
 \geometry{margin=2cm}
