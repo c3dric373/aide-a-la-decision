@@ -71,6 +71,60 @@ Nous disposons de : \\
 
 Pour modéliser le problè
 
+\subsection{Responsable d'atelier}
+Le but du responsable d'atelier est de maximiser le nombre de produits fabriqués. 
+Pour resoudre ce problème il suffit de considérer la contrainte horaire sur une semaine (  5 jours* 2 personnes * 8 heures* 60 minutes  = 4800 minutes ) associé au temps unitaire d'usinage de chaque produit par machines (table 1) ainsi que la quantité de matières premières disponible (table 3) que l'on va associer aux besoins en matières premières pour chaque produits  (table 2).
+En cherchant à retrouver le nombre maximal de produits fabriqués on prend donc comme fonction à minimiser la suivante :
+\[
+Production(X) =
+ \begin{pmatrix} 
+   -1 & -1 & -1 & -1 & -1 & -1
+   \end{pmatrix} *X
+   \]
+avec X= $\begin{pmatrix} 
+   x1 \\ 
+   x2 \\
+   x3 \\
+   x4 \\
+   x5 \\ 
+   x6 
+  \end{pmatrix}$ représentant le nombre de produit de chaque type ( x1 est le nombre de A, x2 est le nombre de B,...). \\
+
+Avec comme contraintes à respecter les suivantes ( représentés sous forme matriciel ) :
+\[
+\begin{pmatrix} 
+   1 & 2 & 1 & 1 & 1 & 2 \\ 
+   2 & 2 & 1 & 2 & 2 & 1 \\
+   1 & 0 & 3 & 2 & 2 & 0 \\
+   8 &15 & 0& 15& 0 & 10 \\
+  17 & 11 & 12 & 15 & 7 & 12 \\
+   8 & 1 & 11 & 0 & 10 & 25 \\
+   2 & 10 & 5 & 4 & 13 & 7 \\
+   15 & 0 & 0 & 7 & 10 & 25 \\
+   15 & 5 & 3 & 12 & 8 & 0 \\
+   15 & 13 & 15 & 18 & 10 & 7
+\end{pmatrix} *\begin{pmatrix} 
+   x1 \\ 
+   x2 \\
+   x3 \\
+   x4 \\
+   x5 \\ 
+   x6 
+  \end{pmatrix} \le \begin{pmatrix} 
+   750\\ 
+   620 \\
+   815 \\
+   4800\\
+   4800 \\ 
+4800 \\ 
+4800 \\ 
+4800 \\ 
+4800 \\ 
+   4800
+  \end{pmatrix}
+   \]
+
+
 \subsection{Responsable des Stocks}
 
 Le but du responsable des stocks est de minimiser le nombre de produits dans son stock, tout en garantissant l'activité de l'entreprise.
@@ -183,6 +237,59 @@ Soit $P_{opt} = 92.6 \approx 93 $
 \end{itemize}
 
 Ces points sont importants puisque ce sont des points de rupture avant une grande augmentation des stocks. Le stock minimal est celui correspondant à une activité de 45\%, soit 762.2 unités. Cependant, il est difficile de demander à une entreprise de ne produire que 50\% de sa production maximale, c'est pourquoi l'entreprise pourrait choisir de produire 93\% de sa capacité maximale et avoir un stock de 1799.6 unités. 
+
+\subsection{Responsable commercial}
+Le but du responsable commercial est d'équilibrer les quantités de produits en fonction de leur famille en prenant en compte que les produits A,B et C sont dans la même famille à l'instar des produits C,D et E. La fonction à minimiser ici est la différence de quantités entre les produits de la même  famille.
+Pour resoudre ce problème il suffit de conserver la matrice des contraintes que l'on a dressé dans la partie "Responsable d'atelier" et on obtient donc : 
+\[
+Famille(X) =
+ \begin{pmatrix} 
+   -1 & -1 & -1 & 1 & 1 & 1
+   \end{pmatrix} *X
+   \]
+avec X= $\begin{pmatrix} 
+   x1 \\ 
+   x2 \\
+   x3 \\
+   x4 \\
+   x5 \\ 
+   x6 
+  \end{pmatrix}$ représentant le nombre de produit de chaque type ( x1 est le nombre de A, x2 est le nombre de B,...). \\
+
+Avec comme contraintes à respecter les suivantes ( représentés sous forme matriciel ) :
+\[
+\begin{pmatrix} 
+   1 & 2 & 1 & 1 & 1 & 2 \\ 
+   2 & 2 & 1 & 2 & 2 & 1 \\
+   1 & 0 & 3 & 2 & 2 & 0 \\
+   8 &15 & 0& 15& 0 & 10 \\
+  17 & 11 & 12 & 15 & 7 & 12 \\
+   8 & 1 & 11 & 0 & 10 & 25 \\
+   2 & 10 & 5 & 4 & 13 & 7 \\
+   15 & 0 & 0 & 7 & 10 & 25 \\
+   15 & 5 & 3 & 12 & 8 & 0 \\
+   15 & 13 & 15 & 18 & 10 & 7
+\end{pmatrix} *\begin{pmatrix} 
+   x1 \\ 
+   x2 \\
+   x3 \\
+   x4 \\
+   x5 \\ 
+   x6 
+  \end{pmatrix} = \begin{pmatrix} 
+   750\\ 
+   620 \\
+   815 \\
+   4800\\
+   4800 \\ 
+4800 \\ 
+4800 \\ 
+4800 \\ 
+4800 \\ 
+   4800
+  \end{pmatrix}
+   \]
+
 
 \end{document}
 \geometry{margin=2cm}
