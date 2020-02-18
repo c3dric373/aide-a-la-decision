@@ -68,9 +68,9 @@ plot(0:1:100,graph);
 % Pour 45% d'activité
 X45 =linprog(fstock,c1,B,[1 1 1 1 1 1],(45/100)*prod,zeros(6,1),[]);
 % Calcul du Stock correspondant
-stock45 = fstock * X45
+stock45 = fstock * X45;
 
 % Pour 93% d'activité
 X93 =linprog(fstock,c1,B,[1 1 1 1 1 1],(93/100)*prod,zeros(6,1),[]);
 % Calcul du Stock correspondant
-stock93 = fstock * X93 
+stock93 = fstock * X93; 
