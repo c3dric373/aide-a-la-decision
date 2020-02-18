@@ -1,8 +1,8 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Crit\350res globaux}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Travail des machines}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Stock maximal}{section.1}% 4
-\BOOKMARK [2][-]{subsection.1.4}{Production minimale positive}{section.1}% 5
+\BOOKMARK [3][-]{subsubsection.1.1.1}{Travail des machines}{subsection.1.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.1.2}{Stock maximal}{subsection.1.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.1.3}{Production minimale positive}{subsection.1.1}% 5
 \BOOKMARK [1][-]{section.2}{Analyses mono-crit\350re}{}% 6
 \BOOKMARK [2][-]{subsection.2.1}{Comptabilit\351}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.2}{Analyse et mod\351lisation du probl\350me}{section.2}% 8

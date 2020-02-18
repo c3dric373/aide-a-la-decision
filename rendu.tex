@@ -7,12 +7,14 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{geometry}
+\usepackage{mathtools}
 \usepackage{caption}
 \usepackage{subcaption}
 \geometry{margin=2cm}
 \usepackage{tabularx}
 \usepackage{longtable}
 \usepackage{hyperref}
+\newcommand*{\transp}[2][-3mu]{\ensuremath{\mskip1mu\prescript{\smash{\mathrm t\mkern#1}}{}{\mathstrut#2}}}
 \hypersetup{
     colorlinks=false, %set true if you want colored links
     linktoc=all,     %set to all if you want both sections and subsections linked
@@ -52,18 +54,18 @@ Dernièrement une deuxième analyse multi-critère sera effectuée à partir de 
 \subsection{Critères globaux}
 Toute analyse présentée dans cette étude est guidée par des critères globaux qui correspondent à des contraintes physiques, temporelles et économiques de l'entreprise.\\
 
-\subsection{Travail des machines}
+\subsubsection{Travail des machines}
 Chaque machine fonctionne 16h par jour soit 4800 minutes par semaine de 5 jours ouvrés.
 Ainsi, pour chaque machine, nous pouvons déduire des données fournies la formule permettant de calculer le temps d'utilisation qui doit doit donc être inférieur à 4800.\\
 
 Inéquations ici.
 
-\subsection{Stock maximal}
+\subsubsection{Stock maximal}
 Il est possible de stocker une quantité maximale de chaque matière première. La quantité en stock dépend des quantités produites de chaque produit, ce qui donne trois inéquations.\\
 
 Inéquations ici.
 
-\subsection{Production minimale positive}
+\subsubsection{Production minimale positive}
 Même si ce critère peut paraître trivial, il est essentiel au niveau mathématique car en son absence on pourrait avoir des chiffres de production négatives. On a alors les inéquations suivantes.\\
 
 Inéquations ici.
@@ -91,7 +93,7 @@ Pour modéliser le problème nous allons écrire chaque table sous forme matrici
 Pour maximiser le bénéfice il faut lui associer une fonction. De manière générale le bénéfice est donné par le chiffre d'affaire auquel on enlève les coûts de production (matières premières et travail des machines dans notre cas).
 L'équation du bénéfice pour notre problème est donc :\\
  
-M4a' - M2' * M4b' - (1/60) * M1 * M5'   \\
+$$f=M_{4a} - \transp{M_2} \ \transp{M_{4b}} - \frac{1}{60} \ M_1 \ \transp{M_5}$$   \\
 
 explication des transposés et des divisions et multiplications.
 
