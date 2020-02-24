@@ -23,6 +23,6 @@ A = [M1'; M2];
 b = [80 * 60 * ones(7, 1); M3'];
 f = M4a' - M2' * M4b' - (1/60) * M1 * M5';%fonction de bénefices
 X0=linprog(-f, A, b, [], [],zeros(6,1) , []);%maximisation avec linprog
-bTot=f'*X; %benefices totaux
+bTot=f'*X0 %benefices totaux
 
 
