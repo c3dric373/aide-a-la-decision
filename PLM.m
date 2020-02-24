@@ -59,6 +59,7 @@ Zcom=Xcom*F;
 Zper=Xper*F;
 %Matrice de gains
 Z=[Zben;Zat;Zstock;Zcom;Zper];
+Z=abs(Z);
 %Point de mire, Diagonale de la matrice.
 M=diag(Z);
 
@@ -79,21 +80,38 @@ normalisation = [15569.6305031447 0;
     366.3253 2.13162820728030e-14;
     9600 5183.0944];
 
-
+% Z normé
 Znorm =zeros(5,5);
 for i=1:5
     Znorm(:,i)=(Z(:,i)-normalisation(i,2))/(normalisation(i,1)-normalisation(i,2));
 end
 Znorm=max(Znorm,0);
 
+% Point de mire normé
 Mnorm=zeros(5,1);
 for i=1:5
     Mnorm(i)=(M(i)-normalisation(i,2))/(normalisation(i,1)-normalisation(i,2));
 end
-
+% Distance normé
 Dnorm = zeros(5,1);
 for i=1:5
-    Dnorm(i)=norm(Mnorm-Znorm(:,i));
+    Dnorm(i)=norm(Mnorm'-Znorm(i,:));
+end
+Zlist=[0 0 0 0 0 0 0]
+c12=[c1; Fper'; Fstock'];
+B2=[B, 5500, 1900];
+% Dégradation sur le personnel en maximisant le bénéfice
+for i=1:10
+    B2(11)=B2(11)+100;
+    res= linprog(Fben,c12,B2,[],[],zeros(6,1),[]);
+    Zres=(abs(res'*F)-normalisation(1,2))/(normalisation(1,1)-normalisation(1,2));
+    Ztemp=abs(res'*F);
+
+    for i=1:5
+        Zres(i)=(Ztemp(i)-normalisation(i,2))/(normalisation(i,1)-normalisation(i,2));
+    end
+    Zlist=[Zlist;B2(11)+100 Zres norm(Mnorm-Zres')];
 end
 
-res= linprog(Fper,c1,B,[],[],zeros(6,1),[])
+B2(11)=6000;
+res= linprog(Fben,c12,B2,[],[],zeros(6,1),[]);
